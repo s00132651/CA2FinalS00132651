@@ -1,0 +1,42 @@
+﻿@model WebApplication4.Models.Actor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Actor</legend>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bio)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        </dl>
+</fieldset>
+
+@foreach (var item in Model.Movies)
+{
+    @item.Movie.Name
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ActorId }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-primary" })
+</p>
